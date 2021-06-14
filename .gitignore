@@ -9,3 +9,6 @@ artifacts
 
 #dotenv
 .env
+
+#docgen
+docs
