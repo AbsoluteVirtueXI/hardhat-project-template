@@ -20,6 +20,7 @@
     "ethereum-waffle": "^3.3.0",
     "ethers": "^5.3.1",
     "hardhat": "^2.3.3",
+    "hardhat-contract-sizer": "^2.0.3",
     "hardhat-docgen": "^1.1.1",
     "prettier": "^2.3.1",
     "prettier-plugin-solidity": "^1.0.0-beta.13",

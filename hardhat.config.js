@@ -1,21 +1,23 @@
 require('@nomiclabs/hardhat-waffle');
 require('@nomiclabs/hardhat-solhint');
 require('hardhat-docgen');
+require('hardhat-contract-sizer');
 
 require('dotenv').config();
 const INFURA_PROJECT_ID = process.env.INFURA_PROJECT_ID;
 const DEPLOYER_PRIVATE_KEY = process.env.DEPLOYER_PRIVATE_KEY;
 
-/**
- * @type import('hardhat/config').HardhatUserConfig
- */
 module.exports = {
-  solidity: '0.8.5',
-  networks: {
-    mainnet: {
-      url: `https://mainnet.infura.io/v3/${INFURA_PROJECT_ID}`,
-      accounts: [`0x${DEPLOYER_PRIVATE_KEY}`],
+  solidity: {
+    version: '0.8.7',
+    settings: {
+      optimizer: {
+        enabled: true,
+        runs: 200,
+      },
     },
+  },
+  networks: {
     ropsten: {
       url: `https://ropsten.infura.io/v3/${INFURA_PROJECT_ID}`,
       accounts: [`0x${DEPLOYER_PRIVATE_KEY}`],
@@ -36,6 +38,11 @@ module.exports = {
   docgen: {
     path: './docs',
     clear: true,
+    runOnCompile: false,
+  },
+  contractSizer: {
+    alphaSort: true,
     runOnCompile: true,
+    disambiguatePaths: true,
   },
 };
